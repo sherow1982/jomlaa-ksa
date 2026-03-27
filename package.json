@@ -1,0 +1,41 @@
+{
+  "name": "jomla-ksa-store",
+  "version": "1.0.0",
+  "private": true,
+  "description": "متجر السعودية - متجر إلكتروني السعوديةي",
+  "author": "Jomla KSA Store",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build:github": "node build-github.js",
+    "build:cloudflare": "node build-cloudflare.js",
+    "build:gitlab": "node build-gitlab.js",
+    "build:all": "npm run clean && npm run build:github && npm run build:cloudflare && npm run build:gitlab",
+    "seo": "node generate-seo.js",
+    "mass-seo": "node generate-mass-seo.js",
+    "check": "node check-project.js",
+    "start": "next start",
+    "lint": "next lint",
+    "clean": "if exist .next rmdir /s /q .next & if exist out rmdir /s /q out & if exist out-github rmdir /s /q out-github & if exist out-cloudflare rmdir /s /q out-cloudflare & if exist out-gitlab rmdir /s /q out-gitlab"
+  },
+  "dependencies": {
+    "next": "15.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.0",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

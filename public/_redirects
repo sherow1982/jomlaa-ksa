@@ -1,0 +1,15 @@
+# Cloudflare Pages Redirects
+
+# Product pages
+/product/:id /product/:id/index.html 200
+
+# Static pages
+/about /about/index.html 200
+/contact /contact/index.html 200
+/cart /cart/index.html 200
+/shipping /shipping/index.html 200
+/returns /returns/index.html 200
+/privacy /privacy/index.html 200
+
+# Homepage
+/ /index.html 200

@@ -1,0 +1,103 @@
+import Link from 'next/link';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { useCart } from '../context/CartContext';
+import FloatingButtons from './FloatingButtons';
+import SearchBox from './SearchBox';
+import Chatbot from './Chatbot';
+
+export default function Layout({ children }) {
+  const router = useRouter();
+  const { cart } = useCart();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <div className="main-container">
+      <header className="site-header">
+        <div className="header-inner">
+          <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="القائمة">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <Link href="/" className="logo">
+            <img src="/logo.jpg" alt="متجر جملة السعودية" style={{ height: '50px', width: 'auto', objectFit: 'contain' }} />
+          </Link>
+
+          <div className="cart-icon-wrapper" onClick={() => router.push('/cart')}>
+            <span style={{ fontSize: '24px' }}>🛒</span>
+            {cart.length > 0 && (
+              <span className="cart-count-badge">{cart.length}</span>
+            )}
+          </div>
+        </div>
+
+        <div className="search-wrapper">
+          <SearchBox />
+        </div>
+      </header>
+
+      <nav className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
+        <div className="menu-overlay" onClick={() => setMenuOpen(false)}></div>
+        <div className="menu-content">
+          <button className="menu-close" onClick={() => setMenuOpen(false)}>×</button>
+          <ul>
+            <li><Link href="/" onClick={() => setMenuOpen(false)}>🏠 الرئيسية</Link></li>
+            <li><Link href="/about" onClick={() => setMenuOpen(false)}>ℹ️ من نحن</Link></li>
+            <li><Link href="/contact" onClick={() => setMenuOpen(false)}>📞 اتصل بنا</Link></li>
+            <li><Link href="/shipping" onClick={() => setMenuOpen(false)}>🚚 سياسة الشحن</Link></li>
+            <li><Link href="/returns" onClick={() => setMenuOpen(false)}>🔄 سياسة الاسترجاع</Link></li>
+            <li><Link href="/privacy" onClick={() => setMenuOpen(false)}>🔒 سياسة الخصوصية</Link></li>
+            <li><Link href="/cart" onClick={() => setMenuOpen(false)}>🛒 السلة ({cart.length})</Link></li>
+          </ul>
+        </div>
+      </nav>
+
+      <main style={{ flex: '1', paddingTop: '140px', paddingBottom: '60px' }}>
+        {children}
+        <FloatingButtons />
+        <Chatbot />
+      </main>
+
+      {/* Banner before Footer */}
+      <div style={{ width: '100%', maxWidth: '1200px', margin: '20px auto', padding: '0 20px' }}>
+        <img 
+          src="/banner.jpg" 
+          alt="عروض متجر جملة السعودية" 
+          style={{ width: '100%', height: 'auto', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}
+        />
+      </div>
+
+      <footer className="site-footer">
+        <div className="footer-grid">
+          <div>
+            <h3 className="footer-heading">عن المتجر</h3>
+            <p style={{ color: '#ccc', lineHeight: '1.6' }}>متجر جملة السعودية - وجهتك الأولى للتسوق الإلكتروني بأسعار الجملة. جودة عالية وشحن مجاني لجميع مناطق المملكة.</p>
+          </div>
+          <div>
+            <h3 className="footer-heading">روابط هامة</h3>
+            <ul className="footer-links" style={{ listStyle: 'none', padding: 0 }}>
+              <li><Link href="/">الرئيسية</Link></li>
+              <li><Link href="/about">من نحن</Link></li>
+              <li><Link href="/contact">اتصل بنا</Link></li>
+              <li><Link href="/shipping">سياسة الشحن</Link></li>
+              <li><Link href="/returns">سياسة الاسترجاع</Link></li>
+              <li><Link href="/privacy">سياسة الخصوصية</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="footer-heading">تواصل معنا</h3>
+            <p style={{ color: '#ccc', marginBottom: '8px' }}>📞 جوال: +201110760081</p>
+            <p style={{ color: '#ccc', marginBottom: '8px' }}>📧 ايميل: sherow1982@gmail.com</p>
+            <p style={{ color: '#ccc', marginBottom: '8px' }}>🏢 الإدارة: المملكة العربية السعودية - الرياض</p>
+            <p style={{ color: '#ccc' }}>🚚 الشحن: لجميع مناطق المملكة العربية السعودية</p>
+          </div>
+        </div>
+        <div style={{ textAlign: 'center', marginTop: '30px', borderTop: '1px solid #444', paddingTop: '20px', color: '#888' }}>
+          © {new Date().getFullYear()} متجر جملة السعودية. جميع الحقوق محفوظة.
+        </div>
+      </footer>
+    </div>
+  );
+}
