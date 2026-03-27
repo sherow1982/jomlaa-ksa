@@ -8,7 +8,6 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "export": "next export",
     "build:github": "node build-github.js",
     "build:cloudflare": "node build-cloudflare.js",
     "build:gitlab": "node build-gitlab.js",
