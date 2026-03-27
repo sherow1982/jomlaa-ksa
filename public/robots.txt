@@ -1,5 +1,5 @@
-# Robots.txt - Oman Store
-# Generated: 2025-02-09T08:00:00.000Z
+# Robots.txt - متجر جملة السعودية
+# Generated: 2026-03-27
 
 User-agent: *
 Allow: /
@@ -15,4 +15,7 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-Sitemap: https://www.storesads.shop/sitemap.xml
+Sitemap: https://jomlaa-ksa.storesads.shop/sitemap.xml
+Sitemap: https://jomlaa-ksa.storesads.shop/sitemap-products.xml
+Sitemap: https://jomlaa-ksa.storesads.shop/sitemap-categories.xml
+Sitemap: https://jomlaa-ksa.storesads.shop/sitemap-seo.xml
