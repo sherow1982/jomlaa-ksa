@@ -1,7 +1,7 @@
 {
-  "name": "متجر عمان",
-  "short_name": "متجر عمان",
-  "description": "أفضل المنتجات المنزلية والعصرية في عمان",
+  "name": "متجر جملة السعودية",
+  "short_name": "جملة السعودية",
+  "description": "أفضل المنتجات بأسعار الجملة في السعودية",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -11,14 +11,14 @@
   "lang": "ar",
   "icons": [
     {
-      "src": "/icon-192.svg",
-      "sizes": "any",
-      "type": "image/svg+xml"
+      "src": "/icon-192.webp",
+      "sizes": "192x192",
+      "type": "image/webp"
     },
     {
-      "src": "/icon-512.svg",
-      "sizes": "any",
-      "type": "image/svg+xml"
+      "src": "/icon-512.webp",
+      "sizes": "512x512",
+      "type": "image/webp"
     }
   ]
 }

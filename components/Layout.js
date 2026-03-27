@@ -22,7 +22,7 @@ export default function Layout({ children }) {
           </button>
 
           <Link href="/" className="logo">
-            <img src="/logo.jpg" alt="متجر جملة السعودية" style={{ height: '50px', width: 'auto', objectFit: 'contain' }} />
+            <img src="/logo.webp" alt="متجر جملة السعودية" style={{ height: '50px', width: 'auto', objectFit: 'contain' }} />
           </Link>
 
           <div className="cart-icon-wrapper" onClick={() => router.push('/cart')}>
@@ -63,7 +63,7 @@ export default function Layout({ children }) {
       {/* Banner before Footer */}
       <div style={{ width: '100%', maxWidth: '1200px', margin: '20px auto', padding: '0 20px' }}>
         <img 
-          src="/banner.jpg" 
+          src="/banner.webp" 
           alt="عروض متجر جملة السعودية" 
           style={{ width: '100%', height: 'auto', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}
         />
